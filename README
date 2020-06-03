@@ -1,0 +1,17 @@
+this program is designated to estimate probabilities of occurence of different situations on TexasHoldem Poker card game
+
+requirements:
+
+  - unix x86-64
+  - ld
+  - gcc with assmbler 'as' compiler
+  - gmake
+  - bash with 'awk', 'sed', and 'od' utilities
+
+no 'insallation' - soft will work in the current dir
+
+to start working just 
+
+  $>  make
+
+in terminal. output would be done to stdout

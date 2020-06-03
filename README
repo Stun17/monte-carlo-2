@@ -2,16 +2,24 @@ this program is designated to estimate probabilities of occurence of different s
 
 requirements:
 
-  - unix x86-64
-  - ld
-  - gcc with assmbler 'as' compiler
-  - gmake
-  - bash with 'awk', 'sed', and 'od' utilities
+  - unix/linux x86-64 Intel/AMD
+  - ld  loader
+  - gcc with assembler compiler 'as' 
+  - gmake utility
+  - bash shell with 'awk', 'sed', and 'od' utilities
 
 no 'insallation' - soft will work in the current dir
 
-to start working just 
+to start - just put  
 
   $>  make
 
 in terminal. output would be done to stdout
+
+to exit - Ctrl-C
+
+enjoy!
+
+---------------
+
+copyleft: WTFPL license

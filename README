@@ -37,7 +37,7 @@ in terminal
 
 to start program: 
 
-  $> ./dispatch 
+  $> ./dispatch.sh 
   
 output would be done to stdout
 

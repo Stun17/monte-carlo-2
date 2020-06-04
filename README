@@ -6,34 +6,42 @@ this program is designated to estimate probabilities of occurence of different
 playing situations in TexasHoldem Poker card game
 
 the program does Monte-Carlo simulation of 65535 shuffles and dealings (this 
-number is maximal for AX IntelCPU registry) and estimates probabilites of 
-several events for "preflop", "flop", "turn" and "river"
+number is maximal for 16-bit AX Intel i686 CPU register) and estimates 
+the probabilites of several events for "preflop", "flop", "turn" and "river"
+
+-------------------------------------------------------------------------------
 
 this progam runs in terminal - no GUI (sorry)
 
-requirements:
+
+system requirements:
 
   - unix/linux x86-64 Intel/AMD
 
 in your system must be installed the next programs:
 
-  - ld             loader
-  - gcc            gnu compiler with assembler compiler 'as' (AT&T syntax) 
-  - gmake/make     utility
-  - bash           shell 
+  - ld             loader                     https://www.gnu.org/software/binutils/ 
+  - as             assembler compiler         https://www.gnu.org/software/binutils/ 
+  - gmake/make     utility                    https://www.gnu.org/software/make/
+  - bash           unix-shell                 https://www.gnu.org/software/bash/
   - awk            report tool                https://www.gnu.org/software/gawk/ 
-  - sed            stream editor              https://www.gnu.org/software/sed/
   - od             oct, dec, hex, ASCII dump  https://www.gnu.org/software/coreutils/
 
-(usually all these programs are supplied by default)
+usually in Linux realm all these programs are supplied by default
 
-no "installation" - soft will work in the current dir
+thats all - no libraries, only system calls are used
+
+-------------------------------------------------------------------------------
+
+no "installation" - program works in the current dir 
 
 to compile source files into exec files:
 
   $> make
 
 in terminal
+
+-------------------------------------------------------------------------------
 
 to start program: 
 
@@ -43,6 +51,8 @@ output would be done to stdout
 
 to change level up:  Ctrl-D
 to exit:             Ctrl-C
+
+-------------------------------------------------------------------------------
 
 if you wish completely uninstall it - just delete that project dir. thats all!
 

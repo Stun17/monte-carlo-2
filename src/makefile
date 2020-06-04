@@ -1,62 +1,52 @@
-run:
-	./dispatch.sh
+all: toesd.out popp_over.out fset.out pace_ace.out ffd.out faces.out foesd_conn.out foesd_hole.out
+	@ echo "done !"
 
-shuffle.o: shuffle.s 
-	as -o $@ -gstabs $^ 
 aux.o: aux.s 
+	as -o $@ -gstabs $^ 
+shuffle.o: shuffle.s 
 	as -o $@ -gstabs $^ 
 main.o: main.s 
 	as -o $@ -gstabs $^ 
 
-flush.o: flush.s 
+ffd.o: ffd.s 
 	as -o $@ -gstabs $^ 
-flush.out: shuffle.o flush.o main.o
+ffd.out: aux.o shuffle.o ffd.o main.o
 	ld -o $@ $^ 
-flush: flush.out runit.sh
-	@./runit.sh $@ 
 
-aces.o: aces.s 
+faces.o: faces.s 
 	as -o $@ -gstabs $^
-aces.out: shuffle.o aces.o main.o
+faces.out: aux.o shuffle.o faces.o main.o
 	ld -o $@ $^ 
-aces: aces.out runit.sh
-	@./runit.sh $@ 
 
-conn.o: conn.s  
+toesd.o: toesd.s  
 	as -o $@ -gstabs $^
-conn.out: shuffle.o aux.o conn.o main.o
+toesd.out: aux.o shuffle.o aux.o toesd.o main.o
 	ld -o $@ $^ 
-conn: conn.out aux.o runit.sh
-	@./runit.sh $@ 
 
-hole.o: hole.s 
+foesd_conn.o: foesd_conn.s  
 	as -o $@ -gstabs $^
-hole.out: shuffle.o hole.o main.o
+foesd_conn.out: aux.o shuffle.o foesd_conn.o main.o
 	ld -o $@ $^ 
-hole: hole.out runit.sh
-	@./runit.sh $@ 
 
-set.o: set.s 
+foesd_hole.o: foesd_hole.s 
 	as -o $@ -gstabs $^
-set.out: shuffle.o set.o main.o
+foesd_hole.out: aux.o shuffle.o foesd_hole.o main.o
 	ld -o $@ $^ 
-set: set.out runit.sh
-	@./runit.sh $@ 
 
-ace_ace.o: ace_ace.s 
+fset.o: fset.s 
 	as -o $@ -gstabs $^
-ace_ace.out: shuffle.o ace_ace.o main.o
+fset.out: aux.o shuffle.o fset.o main.o
 	ld -o $@ $^ 
-ace_ace: ace_ace.out runit.sh
-	@./runit.sh $@ 
 
-opp_over.o: opp_over.s 
+pace_ace.o: pace_ace.s 
 	as -o $@ -gstabs $^
-opp_over.out: shuffle.o opp_over.o main.o
+pace_ace.out: aux.o shuffle.o pace_ace.o main.o
 	ld -o $@ $^ 
-opp_over: opp_over.out runit.sh
-	@./runit.sh $@ 
 
+popp_over.o: popp_over.s 
+	as -o $@ -gstabs $^
+popp_over.out: aux.o shuffle.o popp_over.o main.o
+	ld -o $@ $^ 
 
-cls:
+clean:
 	@rm -f *.o *.out

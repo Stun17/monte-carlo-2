@@ -1,25 +1,51 @@
-this program is designated to estimate probabilities of occurence of different situations on TexasHoldem Poker card game
+-------------------------------------------------------------------------------
+copyleft:            WTFPL license
+-------------------------------------------------------------------------------
+
+this program is designated to estimate probabilities of occurence of different
+playing situations in TexasHoldem Poker card game
+
+the program does Monte-Carlo simulation of 65535 shuffles and dealings (this 
+number is maximal for AX IntelCPU registry) and estimates probabilites of 
+several events for "preflop", "flop", "turn" and "river"
+
+this progam runs in terminal - no GUI (sorry)
 
 requirements:
 
   - unix/linux x86-64 Intel/AMD
-  - ld  loader
-  - gcc with assembler compiler 'as' 
-  - gmake utility
-  - bash shell with 'awk', 'sed', and 'od' utilities
 
-no 'insallation' - soft will work in the current dir
+in your system must be installed the next programs:
 
-to start - just put  
+  - ld             loader
+  - gcc            gnu compiler with assembler compiler 'as' (AT&T syntax) 
+  - gmake/make     utility
+  - bash           shell 
+  - awk            report tool                https://www.gnu.org/software/gawk/ 
+  - sed            stream editor              https://www.gnu.org/software/sed/
+  - od             oct, dec, hex, ASCII dump  https://www.gnu.org/software/coreutils/
 
-  $>  make
+(usually all these programs are supplied by default)
 
-in terminal. output would be done to stdout
+no "installation" - soft will work in the current dir
 
-to exit - Ctrl-C
+to compile source files into exec files:
+
+  $> make
+
+in terminal
+
+to start program: 
+
+  $> ./dispatch 
+  
+output would be done to stdout
+
+to change level up:  Ctrl-D
+to exit:             Ctrl-C
+
+if you wish completely uninstall it - just delete that project dir. thats all!
+
+-------------------------------------------------------------------------------
 
 enjoy!
-
----------------
-
-copyleft: WTFPL license

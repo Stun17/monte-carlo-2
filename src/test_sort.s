@@ -5,34 +5,32 @@
 
 _start:
        #data
-       movb $6 ,  -8(%rsp)
-       movb $2 ,  -9(%rsp)
-       movb $4 , -10(%rsp)
-       movb $5 , -11(%rsp)
-       movb $3 , -12(%rsp)
+       movb $1 , -16(%rsp)
+       movb $4 , -17(%rsp)
+       movb $7 , -18(%rsp)
+       movb $5 , -19(%rsp)
+       movb $9 , -20(%rsp)
 
-       #params
-       mov %rsp  , %rax
-       sub $-12  , %rax
-       mov $4    , %rcx
+   # prepare params
+       mov %rsp , %rbp
+       sub $20  , %rbp
+       mov $4   , %rcx
 
        call bubble_sort
 
-       nop  
        mov $60 , %rax
        syscall
 
-# params : addr - EAX, lenght - ECX
+# params : addr - RBP, lenght - RCX
 # outpub : none
 bubble_sort:
 
-1:    movb  (%rax) , %dl
-      movb 1(%rax) , %dh 
+1:    movb  (%rbp,%rcx) , %dl
+      movb 1(%rbp,%rcx) , %dh 
       cmp %dl, %dh
       ja 2f
-      movb %dh ,  (%rax)      
-      movb %dl , 1(%rax)      
-2:    inc %rax
-      loop 1b
+      movb %dh ,  (%rbp,%rcx)      
+      movb %dl , 1(%rbp,%rcx)      
+2:    loop 1b
 
       ret

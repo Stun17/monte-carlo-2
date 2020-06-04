@@ -1,5 +1,5 @@
 # auxilary functions 
-.global connected, r8_rank_redzone, r8_suit_redzone, r9_rank_redzone, r9_suit_redzone, r10_rank_redzone, r10_suit_redzone, r11_rank_redzone, r11_suit_redzone
+.global connected, r8_rank_redzone, r8_suit_redzone, r9_rank_redzone, r9_suit_redzone, r10_rank_redzone, r10_suit_redzone, r11_rank_redzone, r11_suit_redzone, bubble_sort
 
 
 # test that two cards are connected
@@ -150,3 +150,22 @@ r11_suit_redzone:
 
        ret
 
+# params : addr - RBP, lenght - RCX
+# outpub : none
+bubble_sort:
+
+1:    push %rcx
+
+2:    movb    (%rbp, %rcx) , %dl
+      movb  -1(%rbp, %rcx) , %dh 
+      cmp %dl, %dh
+      jns 3f
+      movb %dh ,   (%rbp, %rcx)      
+      movb %dl , -1(%rbp, %rcx)      
+3:    loop 2b
+
+      pop %rcx
+      inc %rbp
+      loop 1b
+
+      ret

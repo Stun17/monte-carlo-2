@@ -9,6 +9,9 @@ the program does Monte-Carlo simulation of 65535 shuffles and dealings (this
 number is maximal for 16-bit AX Intel i686 CPU register) and estimates 
 the probabilites of several events for "preflop", "flop", "turn" and "river"
 
+the purgpose - to test different coincidences of own pocket with deck and with 
+other players pockets
+
 -------------------------------------------------------------------------------
 
 this progam runs in terminal - no GUI (sorry)

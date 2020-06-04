@@ -12,6 +12,8 @@ buff:      .rept   32
 
 .text
 
+# no params
+# no outputs
 shuffle:
 
     lea buff, %rdi
@@ -39,6 +41,7 @@ shuffle:
     inc %rdi
 2:  loop 1b
 
+  # put result of shuffling in registers
     movq deck,      %r8 
     movq deck +  8, %r9 
     movq deck + 16, %r10 
@@ -47,6 +50,9 @@ shuffle:
     mov %rdi, %rax
     ret
 
+# check that each byte is unique in the deck
+# no params
+# no ouputs  - side-effect only
 check:
     push %rcx
     push %rbx
